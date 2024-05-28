@@ -15,7 +15,7 @@ RUN yarn build
 FROM node:19-alpine3.15 as prod-deps
 WORKDIR /app
 COPY package.json package.json
-RUN yarn install --prod --network-timeout 100000
+RUN yarn install --omit=dev --network-timeout 100000
 
 
 FROM node:19-alpine3.15 as prod
